@@ -1,4 +1,4 @@
-FROM openjdk:8u181-jdk-slim-stretch
+FROM openjdk:11.0.1-jre-slim-sid
 
 ENV JAVA_OPTS -Xmx256m
 
