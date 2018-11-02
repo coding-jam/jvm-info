@@ -22,6 +22,7 @@ services:
           -XX:MinRAMFraction=2
           -XX:MaxRAMFraction=2
           -XX:ParallelGCThreads=3
+          -XX:ConcGCThreads=3
           -XX:CICompilerCount=2
           -Djava.util.concurrent.ForkJoinPool.common.parallelism=3
           -XX:+ExitOnOutOfMemoryError
