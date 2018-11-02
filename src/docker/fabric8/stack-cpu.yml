@@ -9,11 +9,8 @@ services:
         JAVA_OPTIONS: >
           -XX:+PrintFlagsFinal
           -XX:+PrintGCDetails
-        JAVA_MAX_CORE: 2
-        JAVA_MAX_MEM_RATIO: 50
-        JAVA_INIT_MEM_RATIO: 50
+        JAVA_MAX_CORE: 3
       deploy:
         resources:
           limits:
-            memory: 1024M # dovrebbe essere il doppio della Xmx
-            cpus: '2'
+            cpus: '3'
