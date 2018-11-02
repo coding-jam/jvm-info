@@ -8,6 +8,7 @@ services:
       environment:
         # https://blogs.oracle.com/java-platform-group/java-se-support-for-docker-cpu-and-memory-limits
         # https://developers.redhat.com/blog/2017/04/04/openjdk-and-containers/
+        # https://developers.redhat.com/blog/2017/03/14/java-inside-docker/
         # https://www.slideshare.net/RedHatDevelopers/why-youre-going-to-fail-running-java-on-docker
         # https://bugs.java.com/view_bug.do?bug_id=6515172
         # -XX:+UseSerialGC se cpu=1
