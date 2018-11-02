@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+    jvm-info:
+      image: cnj/openjdk-jvm-info
+      ports:
+        - "8080:8080"
+      environment:
+        # https://blogs.oracle.com/java-platform-group/java-se-support-for-docker-cpu-and-memory-limits
+        # https://developers.redhat.com/blog/2017/04/04/openjdk-and-containers/
+        # https://www.slideshare.net/RedHatDevelopers/why-youre-going-to-fail-running-java-on-docker
+        # -XX:+UseSerialGC se cpu=1
+        # -Xms512m -Xmx512m si deducono da -XX:MinRAMFraction=2 e -XX:MaxRAMFraction=2 rispetto ai limiti imposti al container (1024/2)
+        JAVA_OPTS: >
+          -XX:+UnlockExperimentalVMOptions
+          -XX:+UseCGroupMemoryLimitForHeap
+          -XX:+PrintFlagsFinal
+          -XX:+PrintGCDetails
+          -XX:ParallelGCThreads=2
+          -XX:ConcGCThreads=2
+          -XX:CICompilerCount=2
+          -XX:MinRAMFraction=2
+          -XX:MaxRAMFraction=2
+          -XX:+ExitOnOutOfMemoryError
+          -Djava.util.concurrent.ForkJoinPool.common.parallelism=2
+      deploy:
+        resources:
+          limits:
+            memory: 1024M # dovrebbe essere il doppio della Xmx
+            cpus: '2'
