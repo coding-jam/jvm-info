@@ -19,7 +19,7 @@ services:
           -XX:+PrintGCDetails
           -XX:+UnlockExperimentalVMOptions
           -XX:+UseCGroupMemoryLimitForHeap
-          -XX:MinRAMFraction=2
+          -XX:InitialRAMFraction=2
           -XX:MaxRAMFraction=2
           -XX:ParallelGCThreads=3
           -XX:ConcGCThreads=3
